@@ -55,8 +55,7 @@
     .slide.active {
         display: flex;
     }
-    .nextButton,
-    .prevButton {
+    .nextButton {
         position: absolute;
         transform: translateY(-50%);
         top: 50%;
@@ -69,14 +68,9 @@
         opacity: 0.3;
         cursor: pointer;
         transition: 250ms;
+        right: 50px;
         &:hover {
             opacity: 1;
         }
-    }
-    .prevButton {
-        left: 50px;
-    }
-    .nextButton {
-        right: 50px;
     }
 }

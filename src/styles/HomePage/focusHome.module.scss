@@ -19,92 +19,44 @@
         width: 100%;
         gap: 24px;
         margin-top: 24px;
-        .cardsFocusHome {
+        flex-wrap: wrap;
+        .shareCardFocus {
             display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            width: calc((100% / 3) * 2);
-        }
-        .inputsFocusHome {
-            width: calc(100% / 3);
-            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
-            gap: 24px;
-            .inputsTopCard,
-            .inputsBottomCard {
-                width: 100%;
+            gap: 16px;
+            width: calc((100% / 3) - 16px);
+            background-color: $color_Pink_FFD;
+            .titleInputsCard {
+                color: $color_Black_232;
+                text-align: center;
+                font-family: $fontFamily;
+                font-size: $size32;
+                font-weight: $weight700;
+            }
+            button {
+                border: none;
+                outline: none;
+                background: none;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                height: 50%;
-                gap: 32px;
-                .titleInputsCard {
-                    color: $color_Black_232;
-                    text-align: center;
-                    font-family: $fontFamily;
-                    font-size: $size32;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: normal;
+                width: 248px;
+                height: 50px;
+                background-color: $color_Black_000;
+                color: $color_White_FFF;
+                font-family: $fontFamily;
+                font-size: $size22;
+                font-weight: $weight700;
+                text-transform: uppercase;
+                border: 1px solid $color_Black_000;
+                cursor: pointer;
+                transition: 250ms;
+                &:hover{
+                    background-color: transparent;
+                    color: $color_Black_000;
                 }
-                .inputSection {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 12px;
-                    width: 248px;
-                    .labelInput {
-                        color: $color_Black_232;
-                        font-family: $fontFamily;
-                        font-size: $size14;
-                        font-weight: $weight400;
-                    }
-                    input {
-                        background: none;
-                        border: none;
-                        outline: none;
-                        background-color: $color_White_FFF;
-                        padding: 16px;
-                        color: $color_Black_232;
-                        font-family: $fontFamily;
-                        font-size: $size16;
-                        font-weight: $weight400;
-                    }
-                }
-                button {
-                    background: none;
-                    outline: none;
-                    border: none;
-                    background-color: $color_Black_000;
-                    color: $color_White_FFF;
-                    font-family: $fontFamily;
-                    font-size: $size22;
-                    font-weight: $weight700;
-                    width: 248px;
-                    height: 50px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-transform: uppercase;
-                    border: 1px solid transparent;
-                    transition: 250ms;
-                    &:enabled {
-                        &:hover {
-                            border: 1px solid $color_Black_000;
-                            background: none;
-                            color: $color_Black_000;
-                        }
-                    }
-                    &:disabled {
-                        background-color: $color_Grey_979;
-                    }
-                }
-            }
-            .inputsTopCard {
-                background-color: $color_Green_ECF;
-            }
-            .inputsBottomCard {
-                background-color: $color_Pink_FFD;
             }
         }
     }

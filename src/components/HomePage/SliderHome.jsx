@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { allStyles } from "../../styles/allStyles";
-import { allImages } from "../../images/allImages";
 import { dataForTest } from "../../data/infoForTest";
 
 export const SliderHome = () => {
     const dataForSlider = dataForTest.sliderData;
     const styles = allStyles.homePageStyles.sliderHome;
-    console.log(dataForSlider);
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -42,9 +40,6 @@ export const SliderHome = () => {
                     </div>
                 </div>
             ))}
-            <button className={styles.prevButton} onClick={prevSlide}>
-                <i className="fa-solid fa-chevron-left"></i>
-            </button>
             <button className={styles.nextButton} onClick={nextSlide}>
                 <i className="fa-solid fa-chevron-right"></i>
             </button>
