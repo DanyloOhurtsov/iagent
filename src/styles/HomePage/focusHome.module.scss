@@ -1,0 +1,111 @@
+@import "../variables.module.scss";
+
+.focusHomeComp {
+    max-width: 1212px;
+    margin: 0 auto;
+    .titleFocusHome {
+        width: 100%;
+        background-color: $color_Blue_E5E;
+        padding: 16px 24px;
+        h2 {
+            color: $color_Black_232;
+            font-family: $fontFamily;
+            font-size: $size38;
+            font-weight: $weight700;
+        }
+    }
+    .contentFocusHome {
+        display: flex;
+        width: 100%;
+        gap: 24px;
+        margin-top: 24px;
+        .cardsFocusHome {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            width: calc((100% / 3) * 2);
+        }
+        .inputsFocusHome {
+            width: calc(100% / 3);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            .inputsTopCard,
+            .inputsBottomCard {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 50%;
+                gap: 32px;
+                .titleInputsCard {
+                    color: $color_Black_232;
+                    text-align: center;
+                    font-family: $fontFamily;
+                    font-size: $size32;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                }
+                .inputSection {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    width: 248px;
+                    .labelInput {
+                        color: $color_Black_232;
+                        font-family: $fontFamily;
+                        font-size: $size14;
+                        font-weight: $weight400;
+                    }
+                    input {
+                        background: none;
+                        border: none;
+                        outline: none;
+                        background-color: $color_White_FFF;
+                        padding: 16px;
+                        color: $color_Black_232;
+                        font-family: $fontFamily;
+                        font-size: $size16;
+                        font-weight: $weight400;
+                    }
+                }
+                button {
+                    background: none;
+                    outline: none;
+                    border: none;
+                    background-color: $color_Black_000;
+                    color: $color_White_FFF;
+                    font-family: $fontFamily;
+                    font-size: $size22;
+                    font-weight: $weight700;
+                    width: 248px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: uppercase;
+                    border: 1px solid transparent;
+                    transition: 250ms;
+                    &:enabled {
+                        &:hover {
+                            border: 1px solid $color_Black_000;
+                            background: none;
+                            color: $color_Black_000;
+                        }
+                    }
+                    &:disabled {
+                        background-color: $color_Grey_979;
+                    }
+                }
+            }
+            .inputsTopCard {
+                background-color: $color_Green_ECF;
+            }
+            .inputsBottomCard {
+                background-color: $color_Pink_FFD;
+            }
+        }
+    }
+}
