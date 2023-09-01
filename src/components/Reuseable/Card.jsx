@@ -5,9 +5,14 @@ export const Card = ({ value }) => {
     const styles = allStyles.reuseableStyles.cardStyles;
     const data = value.item;
     return (
-        <div className={styles.cardComp} key={data.id}>
+        <div className={styles.cardComp}>
             <div className={styles.imageCard}>
                 <img src={data.image} alt={data.name} />
+                {data.rateNumber && (
+                    <div className={styles.numberRate}>
+                        <p>{data.rateNumber}</p>
+                    </div>
+                )}
             </div>
             <div className={styles.textCard}>
                 <div className={styles.dateInfo}>

@@ -13,9 +13,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
         img {
             width: 100%;
             object-fit: cover;
+        }
+        .numberRate {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 58px;
+            height: 58px;
+            background-color: black;
+            border-top-right-radius: 100%;
+            padding: 14px ;
+            p {
+                color: $color_White_FFF;
+                font-family: $fontFamily;
+                font-size: $size34;
+                font-weight: $weight700;
+            }
         }
     }
     .textCard {
@@ -52,12 +69,12 @@
             font-weight: $weight400;
             text-transform: lowercase;
         }
-        .linksCard{
+        .linksCard {
             display: flex;
             align-items: center;
             justify-content: flex-end;
             gap: 16px;
-            button{
+            button {
                 border: none;
                 background: none;
                 outline: none;

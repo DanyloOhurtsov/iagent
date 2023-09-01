@@ -1,27 +1,19 @@
 import React, { useState } from "react";
 import { allStyles } from "../../styles/allStyles";
-import { dataForTest } from "../../data/infoForTest";
 
-export const SliderHome = () => {
-    const dataForSlider = dataForTest.sliderData;
+export const SliderHome = ({ value }) => {
+    const { dataText } = value;
+    const sliderData = dataText.homePageData.sliderData;
     const styles = allStyles.homePageStyles.sliderHome;
-
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const nextSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % dataForSlider.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide(
-            (prevSlide) =>
-                (prevSlide - 1 + dataForSlider.length) % dataForSlider.length
-        );
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % sliderData.length);
     };
 
     return (
         <div className={styles.sliderComp}>
-            {dataForSlider.map((slide, index) => (
+            {sliderData.map((slide, index) => (
                 <div
                     key={index}
                     className={`${styles.slide} ${

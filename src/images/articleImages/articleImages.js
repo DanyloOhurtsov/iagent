@@ -8,6 +8,7 @@ import img7Article from "./img7Article.png";
 import img8Article from "./img8Article.png";
 import img9Article from "./img9Article.png";
 import img10Article from "./img10Article.png";
+import focusImg from "./focusImg.png";
 
 export const articleImages = {
     img1Article,
@@ -20,4 +21,5 @@ export const articleImages = {
     img8Article,
     img9Article,
     img10Article,
+    focusImg,
 };

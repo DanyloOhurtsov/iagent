@@ -2,71 +2,16 @@ import React from "react";
 import { allStyles } from "../../styles/allStyles";
 import { allImages } from "../../images/allImages";
 
-export const Header = ({value}) => {
-    const {language, setLanguage} = value
-    const logoHeader1 = allImages.logoHeader1
+export const Header = ({ value }) => {
+    const { language, setLanguage, dataText } = value;
+
+    const logoHeader1 = allImages.logoHeader1;
     const styles = allStyles.headerStyles;
-    const buttons = {
-        topNavigation: [
-            {
-                id: 0,
-                name: "About us",
-                destination: "About us",
-            },
-            {
-                id: 1,
-                name: "Contacts",
-                destination: "Contacts",
-            },
-            {
-                id: 2,
-                name: "Become a partner",
-                destination: "Become a partner",
-            },
-            {
-                id: 3,
-                name: "Investigation",
-                destination: "Investigation",
-            },
-        ],
-        bottomNavigation: [
-            {
-                id: 0,
-                name: "Collection",
-            },
-            {
-                id: 1,
-                name: "News",
-            },
-            {
-                id: 2,
-                name: "Club",
-            },
-            {
-                id: 3,
-                name: "Best iAgent",
-            },
-            {
-                id: 4,
-                name: "Design",
-            },
-            {
-                id: 5,
-                name: "Made in Spain",
-            },
-            {
-                id: 6,
-                name: "Forum",
-            },
-            {
-                id: 7,
-                name: "Blog",
-            },
-        ],
+    const buttonsLang = dataText.headerData;
+    
+    const changeLanguage = (event) => {
+        setLanguage(event.target.value);
     };
-    const changeLanguage = (event) =>{
-        setLanguage(event.target.value)
-    }
     return (
         <div className={styles.headerComp}>
             <div className={styles.insideHeader}>
@@ -74,14 +19,20 @@ export const Header = ({value}) => {
                     <img src={logoHeader1} alt="" />
                 </a>
                 <nav className={styles.navigationHeader}>
-                    {buttons.topNavigation.map((item) => (
+                    {buttonsLang.navigationTop.map((item) => (
                         <button className={styles.buttonHeader} key={item.id}>
-                            {item.name}
+                            {item.title}
                         </button>
                     ))}
                 </nav>
                 <div className={styles.optionsHeader}>
-                    <select name="" id="" className={styles.langSelector} value={language} onChange={(event)=> changeLanguage(event)}>
+                    <select
+                        name=""
+                        id=""
+                        className={styles.langSelector}
+                        value={language}
+                        onChange={(event) => changeLanguage(event)}
+                    >
                         <option value="English">Eng</option>
                         <option value="Spanish">Spa</option>
                         <option value="Russian">Rus</option>
@@ -93,14 +44,11 @@ export const Header = ({value}) => {
             </div>
             <hr />
             <div className={styles.bottomHeader}>
-                    {buttons.bottomNavigation.map((item) => (
-                        <button
-                            key={item.id}
-                            className={styles.buttonBottomHeader}
-                        >
-                            {item.name}
-                        </button>
-                    ))}
+                {buttonsLang.navigationBottom.map((item) => (
+                    <button key={item.id} className={styles.buttonBottomHeader}>
+                        {item.title}
+                    </button>
+                ))}
             </div>
         </div>
     );

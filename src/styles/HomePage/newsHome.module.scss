@@ -31,75 +31,134 @@
             display: flex;
             flex-direction: column;
             gap: 24px;
-        }
-        .inputsTopCard {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: calc(100% / 3);
-            gap: 32px;
-            background-color: $color_Green_ECF;
-            .titleInputsCard {
-                color: $color_Black_232;
-                text-align: center;
-                font-family: $fontFamily;
-                font-size: $size32;
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-            }
-            .inputSection {
+            .blogAsideNewsHome {
+                background-color: $color_Blue_E5E;
+                height: calc(((100% / 3) * 2) + 24px);
                 display: flex;
                 flex-direction: column;
-                gap: 12px;
-                width: 248px;
-                .labelInput {
-                    color: $color_Black_232;
-                    font-family: $fontFamily;
-                    font-size: $size14;
-                    font-weight: $weight400;
-                }
-                input {
-                    background: none;
-                    border: none;
-                    outline: none;
-                    background-color: $color_White_FFF;
-                    padding: 16px;
-                    color: $color_Black_232;
-                    font-family: $fontFamily;
-                    font-size: $size16;
-                    font-weight: $weight400;
-                }
-            }
-            button {
-                background: none;
-                outline: none;
-                border: none;
-                background-color: $color_Black_000;
-                color: $color_White_FFF;
-                font-family: $fontFamily;
-                font-size: $size22;
-                font-weight: $weight700;
-                width: 248px;
-                height: 50px;
-                display: flex;
+                padding: 24px;
+                gap: 24px;
                 align-items: center;
-                justify-content: center;
-                text-transform: uppercase;
-                border: 1px solid transparent;
-                transition: 250ms;
-                &:enabled {
-                    cursor: pointer;
-                    &:hover {
-                        border: 1px solid $color_Black_000;
-                        background: none;
-                        color: $color_Black_000;
+                .blogTitleAside {
+                    color: $color_Black_232;
+                    font-family: $fontFamily;
+                    font-size: $size32;
+                    font-weight: $weight700;
+                    text-align: center;
+                }
+                .blogContentAside {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    justify-content: space-between;
+                    .blogItem {
+                        display: flex;
+                        width: 100%;
+                        .textContentBlogItem {
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            .titleBlogItem {
+                                color: $color_Black_232;
+                                font-family: $fontFamily;
+                                font-size: $size18;
+                                font-weight: $weight700;
+                            }
+                            .descBlogItem {
+                                color: $color_Grey_8E9;
+                                font-family: $fontFamily;
+                                font-size: $size14;
+                                font-weight: $weight400;
+                                text-transform: lowercase;
+                            }
+                        }
+                        .imageContentBlogItem {
+                            width: 50%;
+                            height: 100px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                        }
                     }
                 }
-                &:disabled {
-                    background-color: $color_Grey_979;
+            }
+            .subsribeAsideNewsHome {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: calc(100% / 3);
+                gap: 32px;
+                background-color: $color_Green_ECF;
+                .titleInputsCard {
+                    width: 230px;
+                    color: $color_Black_232;
+                    text-align: center;
+                    font-family: $fontFamily;
+                    font-size: $size32;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                }
+                .inputSection {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    width: 248px;
+                    .labelInput {
+                        color: $color_Black_232;
+                        font-family: $fontFamily;
+                        font-size: $size14;
+                        font-weight: $weight400;
+                    }
+                    input {
+                        background: none;
+                        border: none;
+                        outline: none;
+                        background-color: $color_White_FFF;
+                        padding: 16px;
+                        color: $color_Black_232;
+                        font-family: $fontFamily;
+                        font-size: $size16;
+                        font-weight: $weight400;
+                    }
+                }
+                button {
+                    background: none;
+                    outline: none;
+                    border: none;
+                    background-color: $color_Black_000;
+                    color: $color_White_FFF;
+                    font-family: $fontFamily;
+                    font-size: $size22;
+                    font-weight: $weight700;
+                    width: 248px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: uppercase;
+                    border: 1px solid transparent;
+                    transition: 250ms;
+                    &:enabled {
+                        cursor: pointer;
+                        &:hover {
+                            border: 1px solid $color_Black_000;
+                            background: none;
+                            color: $color_Black_000;
+                        }
+                    }
+                    &:disabled {
+                        background-color: $color_Grey_979;
+                    }
                 }
             }
         }

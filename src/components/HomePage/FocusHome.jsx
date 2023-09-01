@@ -1,34 +1,42 @@
 import React from "react";
 import { allStyles } from "../../styles/allStyles";
-import { dataForTest } from "../../data/infoForTest";
 import { Card } from "../Reuseable/Card";
-import { useState } from "react";
+import { allImages } from "../../images/allImages";
 
-export const FocusHome = () => {
-    const dataForTestFocus = dataForTest.focusData.slice(0, 5); // Вибираємо перші 5 елементів
+export const FocusHome = ({ value }) => {
+    // STYLES
     const styles = allStyles.homePageStyles.focusHome;
-
-    const firstRow = dataForTestFocus.slice(0, 2);
-    const secondRow = dataForTestFocus.slice(2, 5);
+    // IMAGES
+    const image = allImages.articleImages.focusImg;
+    // FOCUS DATA
+    const { dataText } = value;
+    const focusData = dataText.homePageData.focusData;
+    const top5FocusData = focusData.content.slice(0, 3);
+    const firstRow = top5FocusData.slice(0, 2);
+    const secondRow = top5FocusData.slice(2, 5);
 
     return (
         <div className={styles.focusHomeComp}>
             <div className={styles.titleFocusHome}>
-                <h2>Focus</h2>
+                <h2>{focusData.text.title}</h2>
             </div>
             <div className={styles.contentFocusHome}>
-                {firstRow.map((item) => (
-                    <Card value={{ item }} key={item.id} />
-                ))}
-                <div className={styles.shareCardFocus}>
-                    <p className={styles.titleInputsCard}>
-                        Got ideas for our investigation?
-                    </p>
-                    <button>Share it!</button>
+                <div className={styles.topRowFocusHome}>
+                    <div className="imageTopRowFocusHome">
+                        <img src={image} alt="" />
+                    </div>
+                    <div className={styles.shareCardFocus}>
+                        <p className={styles.titleInputsCard}>
+                            {focusData.text.asideInfo.title}
+                        </p>
+                        <button>{focusData.text.asideInfo.buttonText}</button>
+                    </div>
                 </div>
-                {secondRow.map((item) => (
-                    <Card value={{ item }} key={item.id} />
-                ))}
+                <div className={styles.cardsFocusHome}>
+                    {top5FocusData.map((item) => (
+                        <Card value={{ item }} key={item.id} />
+                    ))}
+                </div>
             </div>
         </div>
     );
