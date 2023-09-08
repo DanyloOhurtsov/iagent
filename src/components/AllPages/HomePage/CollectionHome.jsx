@@ -17,7 +17,8 @@ export const CollectionHome = ({ value: { dataText } }) => {
     const styles = allStyles.allPagesStyles.homePageStyles.collectionHome;
 
     // SLIDER
-    const [visibleItems, setVisibleItems] = useState(3);
+    const visibleItems = 3
+    // const [visibleItems, setVisibleItems] = useState(3);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {

@@ -75,6 +75,7 @@ export const NewsHome = ({ value: {dataText} }) => {
                             <input
                                 type="email"
                                 value={emailInputValue}
+                                className={!isEmailValid ? styles.wrongEmail : ''}
                                 onChange={(event) =>
                                     setEmailInputValue(event.target.value)
                                 }
