@@ -118,6 +118,9 @@
                         font-family: $fontFamily;
                         font-size: $size14;
                         font-weight: $weight400;
+                        &.wrongEmailLabel{
+                            color: #FF0000;
+                        }
                     }
                     input {
                         background: none;
@@ -130,10 +133,9 @@
                         font-size: $size16;
                         font-weight: $weight400;
                         border: 1px solid transparent;
-                    }
-                    .wrongEmail {
-                        background-color: rgba(255, 116, 116, 0.3);
-                        border: 1px solid red;
+                        &.wrongEmail {
+                            border: 1px solid #FF0000;
+                        }
                     }
                 }
                 button {

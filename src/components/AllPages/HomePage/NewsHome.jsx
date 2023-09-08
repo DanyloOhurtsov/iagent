@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { allStyles } from "../../../styles/allStyles";
 import { Card } from "../../Reuseable/Card";
 
-export const NewsHome = ({ value: {dataText} }) => {
+export const NewsHome = ({ value: { dataText } }) => {
     // STYLES
     const styles = allStyles.allPagesStyles.homePageStyles.newsHome;
 
@@ -13,7 +13,7 @@ export const NewsHome = ({ value: {dataText} }) => {
     // EMAIL
     const [emailInputValue, setEmailInputValue] = useState("");
     const [isEmailValid, setIsEmailValid] = useState(true);
-    
+
     const sendEmail = () => {
         if (validateEmail(emailInputValue)) {
             console.log(emailInputValue);
@@ -71,11 +71,19 @@ export const NewsHome = ({ value: {dataText} }) => {
                             {text.subscribe.title}
                         </p>
                         <div className={styles.inputSection}>
-                            <p className={styles.labelInput}>Email</p>
+                            <p
+                                className={`${styles.labelInput} ${
+                                    !isEmailValid ? styles.wrongEmailLabel : ""
+                                }`}
+                            >
+                                Email
+                            </p>
                             <input
                                 type="email"
                                 value={emailInputValue}
-                                className={!isEmailValid ? styles.wrongEmail : ''}
+                                className={
+                                    !isEmailValid ? styles.wrongEmail : ""
+                                }
                                 onChange={(event) =>
                                     setEmailInputValue(event.target.value)
                                 }

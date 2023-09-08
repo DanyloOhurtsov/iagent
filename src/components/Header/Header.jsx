@@ -19,7 +19,6 @@ export const Header = ({
 
     const togglePage = (name) => {
         setCurrentPage(name);
-        console.log(name);
     };
 
     const toggleChangeSelector = () => {
@@ -111,7 +110,9 @@ export const Header = ({
                 {buttonsLang.navigationBottom.map((item) => (
                     <button
                         key={item.id}
-                        className={styles.buttonBottomHeader}
+                        className={`${styles.buttonBottomHeader} ${
+                            currentPage === item.class ? styles[item.class] : ""
+                        }`}
                         name={item.class}
                         onClick={(event) => togglePage(event.target.name)}
                     >

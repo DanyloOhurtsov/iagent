@@ -4,6 +4,7 @@ import { allStyles } from "../../styles/allStyles";
 export const Card = ({ value }) => {
     const styles = allStyles.reuseableStyles.cardStyles;
     const data = value.item;
+
     return (
         <div className={styles.cardComp}>
             <div className={styles.imageCard}>
@@ -22,7 +23,7 @@ export const Card = ({ value }) => {
                         <span>{data.viewed}</span>
                     </p>
                 </div>
-                <p className={styles.titleCard}>{data.title}</p>
+                <p className={styles.titleCard}>{data.id}{data.title}</p>
                 <p className={styles.descriptionCard}>{data.desc}</p>
                 <div className={styles.linksCard}>
                     <button>
