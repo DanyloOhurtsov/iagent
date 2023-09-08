@@ -30,12 +30,49 @@
             gap: 24px;
             .inputSearchSection {
                 width: calc((100% / 3) * 2);
-                background-color: aqua;
+                display: flex;
+                .buttonSearchInput {
+                    border: none;
+                    background: none;
+                    outline: none;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $color_Black_000;
+                    color: $color_White_FFF;
+                    font-size: $size18;
+                    border: 1px solid transparent;
+                    transition: 250ms;
+                    &:hover {
+                        background-color: $color_White_FFF;
+                        color: $color_Black_000;
+                        border: 1px solid $color_Black_000;
+                    }
+                }
+                input {
+                    background: none;
+                    outline: none;
+                    border: none;
+                    border: 1px solid $color_Grey_DED;
+                    height: 50px;
+                    width: 100%;
+                    padding: 8px;
+                    color: $color_Black_232;
+                    font-family: $fontFamily;
+                    font-size: $size16;
+                    font-weight: $weight400;
+                    &::placeholder{
+                        color: $color_Black_0-21;
+                    }
+                }
             }
             .filtersButtonsSearch {
                 width: calc((100% / 3) - 12px);
                 display: flex;
-                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
                 .buttonFilterSearch {
                     border: none;
                     outline: none;
@@ -44,7 +81,7 @@
                     gap: 8px;
                     align-items: center;
                     cursor: pointer;
-                    img{
+                    img {
                         pointer-events: none;
                     }
                     p {

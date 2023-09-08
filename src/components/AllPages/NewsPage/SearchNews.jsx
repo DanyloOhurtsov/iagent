@@ -7,13 +7,16 @@ export const SearchNews = ({
     const [activeFilter, setActiveFilter] = useState("");
 
     const toggleFilter = (event) => {
-        setActiveFilter(event.target.name)
+        setActiveFilter(event.target.name);
     };
 
     return (
         <div className={styles.searchNewsComp}>
             <div className={styles.inputSearchSection}>
-                <button onClick={() => handleSearchInputChange(searchQuery)}>
+                <button
+                    onClick={() => handleSearchInputChange(searchQuery)}
+                    className={styles.buttonSearchInput}
+                >
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <input
