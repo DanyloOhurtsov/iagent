@@ -557,7 +557,37 @@ export const allData = {
                 },
             },
         },
-        newsPageData: {},
+        newsPageData: {
+            newsData: {
+                text: {
+                    title: "News",
+                    subscribe: {
+                        title: "Subscribe to the newsletter",
+                        buttonText: "Subscribe",
+                    },
+                    search: {
+                        placeholder: "With nature-inspired architecture,",
+                        filters: [
+                            {
+                                id: 0,
+                                icon: "",
+                                text: "Hot",
+                            },
+                            {
+                                id: 1,
+                                icon: "",
+                                text: "new",
+                            },
+                            {
+                                id: 2,
+                                icon: "",
+                                text: "most comment",
+                            },
+                        ],
+                    },
+                },
+            },
+        },
     },
     Spa: {},
     Rus: {

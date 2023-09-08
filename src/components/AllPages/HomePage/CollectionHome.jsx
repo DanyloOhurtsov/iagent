@@ -18,7 +18,6 @@ export const CollectionHome = ({ value: { dataText } }) => {
 
     // SLIDER
     const visibleItems = 3
-    // const [visibleItems, setVisibleItems] = useState(3);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {
@@ -49,6 +48,7 @@ export const CollectionHome = ({ value: { dataText } }) => {
                                 activeButton === item.name ? styles.active : ""
                             }`}
                             onClick={() => setActiveButton(item.name)}
+                            key={item.id}
                         >
                             {item.text}
                         </button>
