@@ -7,21 +7,25 @@ export const allData = {
                     id: 0,
                     title: "About us",
                     link: "",
+                    class: "about",
                 },
                 {
                     id: 1,
                     title: "Contacts",
                     link: "",
+                    class: "contacts",
                 },
                 {
                     id: 2,
                     title: "Become a partner",
                     link: "",
+                    class: "become",
                 },
                 {
                     id: 3,
                     title: "Investigation",
                     link: "",
+                    class: "investigation",
                 },
             ],
             navigationBottom: [
@@ -29,41 +33,49 @@ export const allData = {
                     id: 0,
                     title: "Collection",
                     link: "",
+                    class: 'collection',
                 },
                 {
                     id: 1,
                     title: "News",
                     link: "",
+                    class: 'news',
                 },
                 {
                     id: 2,
                     title: "Club",
                     link: "",
+                    class: 'club',
                 },
                 {
                     id: 3,
                     title: "Best iAgent",
                     link: "",
+                    class: 'best',
                 },
                 {
                     id: 4,
                     title: "Design",
                     link: "",
+                    class: 'design',
                 },
                 {
                     id: 5,
                     title: "Made in Spain",
                     link: "",
+                    class: 'madeInSpain',
                 },
                 {
                     id: 6,
                     title: "Forum",
                     link: "",
+                    class: 'forum',
                 },
                 {
                     id: 7,
                     title: "Blog",
                     link: "",
+                    class: 'blog',
                 },
             ],
         },
@@ -416,7 +428,18 @@ export const allData = {
             collectionData: {
                 text: {
                     title: "Collection",
-                    buttons: {},
+                    buttons: [
+                        {
+                            id: 0,
+                            name: 'Compra',
+                            text: 'Buy'
+                        },
+                        {
+                            id: 1,
+                            name: 'Alquiler',
+                            text: 'Rent'
+                        }
+                    ],
                 },
                 content: {
                     Compra: [
@@ -530,10 +553,13 @@ export const allData = {
                             viewed: 15,
                             link: "",
                         },
-                    ]
+                    ],
                 },
             },
         },
+        newsPageData: {
+            
+        }
     },
     Spa: {},
     Rus: {
@@ -543,21 +569,25 @@ export const allData = {
                     id: 0,
                     title: "О нас",
                     link: "",
+                    class: "about",
                 },
                 {
                     id: 1,
                     title: "Контакты",
                     link: "",
+                    class: "contacts",
                 },
                 {
                     id: 2,
                     title: "Стать партнером",
                     link: "",
+                    class: "become",
                 },
                 {
                     id: 3,
                     title: "Расследование",
                     link: "",
+                    class: "investigation",
                 },
             ],
             navigationBottom: [
@@ -949,6 +979,140 @@ export const allData = {
                     },
                 ],
             },
+            collectionData: {
+                text: {
+                    title: "Колекции",
+                    buttons: [
+                        {
+                            id: 0,
+                            name: 'Compra',
+                            text: 'Покупка'
+                        },
+                        {
+                            id: 1,
+                            name: 'Alquiler',
+                            text: 'Аренда'
+                        }
+                    ],
+                },
+                content: {
+                    Compra: [
+                        {
+                            id: 0,
+                            image: allImages.articleImages.img1Article,
+                            title: "1Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 1,
+                            image: allImages.articleImages.img1Article,
+                            title: "2Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 2,
+                            image: allImages.articleImages.img1Article,
+                            title: "3Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 3,
+                            image: allImages.articleImages.img1Article,
+                            title: "4Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 4,
+                            image: allImages.articleImages.img1Article,
+                            title: "5Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 5,
+                            image: allImages.articleImages.img1Article,
+                            title: "6Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                    ],
+                    Alquiler: [
+                        {
+                            id: 0,
+                            image: allImages.articleImages.img2Article,
+                            title: "Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 1,
+                            image: allImages.articleImages.img2Article,
+                            title: "Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 2,
+                            image: allImages.articleImages.img2Article,
+                            title: "Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 3,
+                            image: allImages.articleImages.img2Article,
+                            title: "Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 4,
+                            image: allImages.articleImages.img2Article,
+                            title: "Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                        {
+                            id: 5,
+                            image: allImages.articleImages.img2Article,
+                            title: "Eywa: New Take on Dubai’s Luxury Real Estate",
+                            dateNumber: "31.03.2023",
+                            desc: "Этот комплекс с архитектурой, вдохновленной природой, удобствами, ориентированными исключительно на благополучие, и изысканными интерьерами, вдохновленными Васту Шастрой, создан для того, чтобы",
+                            viewed: 15,
+                            link: "",
+                        },
+                    ],
+                },
+            },
         },
+        newsPageData: {
+
+        }
     },
 };

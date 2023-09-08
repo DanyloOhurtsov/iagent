@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { allStyles } from "../../styles/allStyles";
-import { Card } from "../Reuseable/Card";
+import { allStyles } from "../../../styles/allStyles";
 
-export const CollectionHome = ({ value }) => {
+export const CollectionHome = ({ value: { dataText } }) => {
     // DATA
-    const { dataText } = value;
     const collectionData = dataText.homePageData.collectionData;
     const [activeButton, setActiveButton] = useState("Compra");
     let dataForCollectionSlider;
@@ -16,10 +14,10 @@ export const CollectionHome = ({ value }) => {
     }
 
     // STYLES
-    const styles = allStyles.homePageStyles.collectionHome;
+    const styles = allStyles.allPagesStyles.homePageStyles.collectionHome;
 
     // SLIDER
-    const [visibleItems, setVisibleItems] = useState(3); // Визначаємо видиму кількість блоків
+    const [visibleItems, setVisibleItems] = useState(3);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {
@@ -44,22 +42,16 @@ export const CollectionHome = ({ value }) => {
             </div>
             <div className={styles.controlCollectionHome}>
                 <div className={styles.buttonsControlCollectionHome}>
-                    <button
-                        className={`${styles.buttonToggleNews} ${
-                            activeButton === "Compra" ? styles.active : ""
-                        }`}
-                        onClick={() => setActiveButton("Compra")}
-                    >
-                        Compra
-                    </button>
-                    <button
-                        className={`${styles.buttonToggleNews} ${
-                            activeButton === "Alquiler" ? styles.active : ""
-                        }`}
-                        onClick={() => setActiveButton("Alquiler")}
-                    >
-                        Alquiler
-                    </button>
+                    {collectionData.text.buttons.map((item) => (
+                        <button
+                            className={`${styles.buttonToggleNews} ${
+                                activeButton === item.name ? styles.active : ""
+                            }`}
+                            onClick={() => setActiveButton(item.name)}
+                        >
+                            {item.text}
+                        </button>
+                    ))}
                 </div>
                 <div className={styles.sliderControlCollectionHome}>
                     <button

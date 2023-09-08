@@ -2,15 +2,31 @@ import React from "react";
 import { allStyles } from "../../styles/allStyles";
 import { allImages } from "../../images/allImages";
 
-export const Header = ({ value }) => {
-    const { language, setLanguage, dataText } = value;
-
+export const Header = ({
+    value: {
+        dataText,
+        language,
+        setLanguage,
+        isOpenChangeLangHeader,
+        setIsOpenChangeLangHeader,
+        currentPage,
+        setCurrentPage,
+    },
+}) => {
     const logoHeader1 = allImages.logoHeader1;
     const styles = allStyles.headerStyles;
     const buttonsLang = dataText.headerData;
-    
+
+    const togglePage = (event) => {
+        setCurrentPage(event.target.name);
+    };
+
+    const toggleChangeSelector = () => {
+        setIsOpenChangeLangHeader(!isOpenChangeLangHeader);
+    };
     const changeLanguage = (event) => {
         setLanguage(event.target.value);
+        toggleChangeSelector();
     };
     return (
         <div className={styles.headerComp}>
@@ -20,23 +36,66 @@ export const Header = ({ value }) => {
                 </a>
                 <nav className={styles.navigationHeader}>
                     {buttonsLang.navigationTop.map((item) => (
-                        <button className={styles.buttonHeader} key={item.id}>
+                        <button
+                            className={`${styles.buttonHeader}`}
+                            key={item.id}
+                            name={item.title}
+                        >
                             {item.title}
                         </button>
                     ))}
                 </nav>
                 <div className={styles.optionsHeader}>
-                    <select
-                        name=""
-                        id=""
-                        className={styles.langSelector}
-                        value={language}
-                        onChange={(event) => changeLanguage(event)}
-                    >
-                        <option value="English">Eng</option>
-                        <option value="Spanish">Spa</option>
-                        <option value="Russian">Rus</option>
-                    </select>
+                    <div className={styles.selectorLangHeader}>
+                        <button
+                            className={styles.topSelector}
+                            onClick={toggleChangeSelector}
+                        >
+                            {language}
+                            <span>
+                                <i className="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </button>
+                        {isOpenChangeLangHeader && (
+                            <div className={styles.boxVariants}>
+                                <div className={styles.left}>
+                                    <button
+                                        className={styles.variant}
+                                        value={"English"}
+                                        onClick={(event) =>
+                                            changeLanguage(event)
+                                        }
+                                    >
+                                        Eng
+                                    </button>
+                                    <button
+                                        className={styles.variant}
+                                        value={"Spanish"}
+                                        onClick={(event) =>
+                                            changeLanguage(event)
+                                        }
+                                    >
+                                        Spa
+                                    </button>
+                                    <button
+                                        className={styles.variant}
+                                        value={"Russian"}
+                                        onClick={(event) =>
+                                            changeLanguage(event)
+                                        }
+                                    >
+                                        Rus
+                                    </button>
+                                </div>
+                                <button
+                                    className={styles.arrowButton}
+                                    onClick={toggleChangeSelector}
+                                >
+                                    <i className="fa-solid fa-chevron-up"></i>
+                                </button>
+                            </div>
+                        )}
+                    </div>
                     <button className={styles.loginButtonHeader}>
                         <i className="fa-regular fa-user"></i>
                     </button>
@@ -45,7 +104,12 @@ export const Header = ({ value }) => {
             <hr />
             <div className={styles.bottomHeader}>
                 {buttonsLang.navigationBottom.map((item) => (
-                    <button key={item.id} className={styles.buttonBottomHeader}>
+                    <button
+                        key={item.id}
+                        className={styles.buttonBottomHeader}
+                        name={item.class}
+                        onClick={(event) => togglePage(event)}
+                    >
                         {item.title}
                     </button>
                 ))}

@@ -1,11 +1,10 @@
 import React from "react";
-import { allStyles } from "../../styles/allStyles";
-import { Card } from "../Reuseable/Card";
+import { allStyles } from "../../../styles/allStyles";
+import { Card } from "../../Reuseable/Card";
 
-export const BestHome = ({ value }) => {
-    const { dataText } = value;
+export const BestHome = ({ value: {dataText} }) => {
     const bestData = dataText.homePageData.bestData;
-    const styles = allStyles.homePageStyles.bestHome;
+    const styles = allStyles.allPagesStyles.homePageStyles.bestHome;
 
     return (
         <div className={styles.bestHomeComp}>

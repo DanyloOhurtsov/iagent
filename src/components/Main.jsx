@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { allStyles } from "../styles/allStyles";
 import { Header } from "./Header/Header";
-import { HomePage } from "./HomePage/HomePage";
+// import { HomePage } from "./HomePage/HomePage";
 import { Footer } from "./Footer/Footer";
 import { allData } from "../data/languagesData";
+import { AllPages } from "./AllPages/AllPages";
 
 export const Main = () => {
+    const [currentPage, setCurrentPage] = useState("Homepage");
+
     const styles = allStyles.mainPage;
     const { Eng, Spa, Rus } = allData;
     const [language, setLanguage] = useState("English");
@@ -19,7 +22,7 @@ export const Main = () => {
     if (language === "Russian") {
         dataText = Rus;
     }
-    
+
     const [isOpenChangeLangFooter, setIsOpenChangeLangFooter] = useState(false);
     const [isOpenChangeLangHeader, setIsOpenChangeLangHeader] = useState(false);
 
@@ -32,9 +35,11 @@ export const Main = () => {
                     setLanguage,
                     isOpenChangeLangHeader,
                     setIsOpenChangeLangHeader,
+                    currentPage,
+                    setCurrentPage
                 }}
             />
-            <HomePage value={{ dataText }} />
+            <AllPages value={{ dataText, currentPage, setCurrentPage }} />
             <Footer
                 value={{
                     dataText,

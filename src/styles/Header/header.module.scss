@@ -26,17 +26,70 @@
                 cursor: pointer;
             }
         }
-        .optionsHeader{
+        .optionsHeader {
             display: flex;
             align-items: center;
             gap: 32px;
-            .langSelector{
-                background: none;
-                outline: none;
-                border: none;
-                cursor: pointer;
+            .selectorLangHeader {
+                position: relative;
+                padding: 0 8px;
+                .topSelector {
+                    width: 100%;
+                    background: none;
+                    outline: none;
+                    border: none;
+                    display: flex;
+                    gap: 8px;
+                    color: #232020;
+                    font-family: Roboto;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 900;
+                    line-height: normal;
+                }
+                .boxVariants {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    background-color: $color_Yellow_F4F;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    padding: 8px;
+                    .left {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        align-items: flex-start;
+                        width: 100%;
+                        button {
+                            background: none;
+                            border: none;
+                            outline: none;
+                            text-align: left;
+                            cursor: pointer;
+                            color: $color_Black_232;
+                            font-family: $fontFamily;
+                            font-size: $size16;
+                            font-weight: $weight900;
+                            width: 100%;
+                        }
+                    }
+                    .arrowButton {
+                        background: none;
+                        border: none;
+                        outline: none;
+                        width: 16px;
+                        height: 16px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                    }
+                }
             }
-            .loginButtonHeader{
+            .loginButtonHeader {
                 background: none;
                 outline: none;
                 border: none;
@@ -71,6 +124,9 @@
             font-size: $size16;
             font-weight: $weight400;
             text-transform: uppercase;
+            cursor: pointer;
+            &:hover {
+            }
         }
     }
 }

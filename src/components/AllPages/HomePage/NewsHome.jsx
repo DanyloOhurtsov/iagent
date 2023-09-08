@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { allStyles } from "../../styles/allStyles";
-import { Card } from "../Reuseable/Card";
+import { allStyles } from "../../../styles/allStyles";
+import { Card } from "../../Reuseable/Card";
 
-export const NewsHome = ({ value }) => {
+export const NewsHome = ({ value: {dataText} }) => {
     // STYLES
-    const styles = allStyles.homePageStyles.newsHome;
+    const styles = allStyles.allPagesStyles.homePageStyles.newsHome;
 
     // LANG DATA
-    const { dataText } = value;
+    // const dataText = value;
     const { news, blog, text } = dataText.homePageData.newsData;
 
     // EMAIL
     const [emailInputValue, setEmailInputValue] = useState("");
     const [isEmailValid, setIsEmailValid] = useState(true);
-    console.log(isEmailValid);
+    
     const sendEmail = () => {
         if (validateEmail(emailInputValue)) {
             console.log(emailInputValue);
@@ -44,14 +44,23 @@ export const NewsHome = ({ value }) => {
                     <div className={styles.blogAsideNewsHome}>
                         <h3 className={styles.blogTitleAside}>{blog.title}</h3>
                         <div className={styles.blogContentAside}>
-                            {blog.content.map((item)=>(
+                            {blog.content.map((item) => (
                                 <div className={styles.blogItem} key={item.id}>
                                     <div className={styles.textContentBlogItem}>
-                                        <p className={styles.titleBlogItem}>{item.title}</p>
-                                        <p className={styles.descBlogItem}>{item.text} <br/> {item.date}</p>
+                                        <p className={styles.titleBlogItem}>
+                                            {item.title}
+                                        </p>
+                                        <p className={styles.descBlogItem}>
+                                            {item.text} <br /> {item.date}
+                                        </p>
                                     </div>
-                                    <div className={styles.imageContentBlogItem}>
-                                        <img src={item.image} alt={item.title} />
+                                    <div
+                                        className={styles.imageContentBlogItem}
+                                    >
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                        />
                                     </div>
                                 </div>
                             ))}

@@ -1,4 +1,4 @@
-@import "../variables.module.scss";
+@import "../../variables.module.scss";
 
 /* Slider.css */
 .sliderComp {
@@ -31,7 +31,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            .insideText{
+            .insideText {
                 width: 400px;
                 display: flex;
                 flex-direction: column;

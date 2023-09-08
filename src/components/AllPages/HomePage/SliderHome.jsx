@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { allStyles } from "../../styles/allStyles";
+import { allStyles } from "../../../styles/allStyles";
 
-export const SliderHome = ({ value }) => {
-    const { dataText } = value;
+export const SliderHome = ({ value: {dataText} }) => {
     const sliderData = dataText.homePageData.sliderData;
-    const styles = allStyles.homePageStyles.sliderHome;
+    const styles = allStyles.allPagesStyles.homePageStyles.sliderHome;
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const nextSlide = () => {

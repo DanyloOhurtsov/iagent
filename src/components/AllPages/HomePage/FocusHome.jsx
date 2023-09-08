@@ -1,19 +1,16 @@
 import React from "react";
-import { allStyles } from "../../styles/allStyles";
-import { Card } from "../Reuseable/Card";
-import { allImages } from "../../images/allImages";
+import { allStyles } from "../../../styles/allStyles";
+import { Card } from "../../Reuseable/Card";
+import { allImages } from "../../../images/allImages";
 
-export const FocusHome = ({ value }) => {
+export const FocusHome = ({ value: {dataText} }) => {
     // STYLES
-    const styles = allStyles.homePageStyles.focusHome;
+    const styles = allStyles.allPagesStyles.homePageStyles.focusHome;
     // IMAGES
     const image = allImages.articleImages.focusImg;
     // FOCUS DATA
-    const { dataText } = value;
     const focusData = dataText.homePageData.focusData;
     const top5FocusData = focusData.content.slice(0, 3);
-    const firstRow = top5FocusData.slice(0, 2);
-    const secondRow = top5FocusData.slice(2, 5);
 
     return (
         <div className={styles.focusHomeComp}>
