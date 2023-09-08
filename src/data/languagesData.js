@@ -33,49 +33,49 @@ export const allData = {
                     id: 0,
                     title: "Collection",
                     link: "",
-                    class: 'collection',
+                    class: "collection",
                 },
                 {
                     id: 1,
                     title: "News",
                     link: "",
-                    class: 'news',
+                    class: "news",
                 },
                 {
                     id: 2,
                     title: "Club",
                     link: "",
-                    class: 'club',
+                    class: "club",
                 },
                 {
                     id: 3,
                     title: "Best iAgent",
                     link: "",
-                    class: 'best',
+                    class: "best",
                 },
                 {
                     id: 4,
                     title: "Design",
                     link: "",
-                    class: 'design',
+                    class: "design",
                 },
                 {
                     id: 5,
                     title: "Made in Spain",
                     link: "",
-                    class: 'madeInSpain',
+                    class: "madeInSpain",
                 },
                 {
                     id: 6,
                     title: "Forum",
                     link: "",
-                    class: 'forum',
+                    class: "forum",
                 },
                 {
                     id: 7,
                     title: "Blog",
                     link: "",
-                    class: 'blog',
+                    class: "blog",
                 },
             ],
         },
@@ -431,14 +431,14 @@ export const allData = {
                     buttons: [
                         {
                             id: 0,
-                            name: 'Compra',
-                            text: 'Buy'
+                            name: "Compra",
+                            text: "Buy",
                         },
                         {
                             id: 1,
-                            name: 'Alquiler',
-                            text: 'Rent'
-                        }
+                            name: "Alquiler",
+                            text: "Rent",
+                        },
                     ],
                 },
                 content: {
@@ -557,9 +557,7 @@ export const allData = {
                 },
             },
         },
-        newsPageData: {
-            
-        }
+        newsPageData: {},
     },
     Spa: {},
     Rus: {
@@ -595,41 +593,49 @@ export const allData = {
                     id: 0,
                     title: "Колекции",
                     link: "",
+                    class: "collection",
                 },
                 {
                     id: 1,
                     title: "Новости",
                     link: "",
+                    class: "news",
                 },
                 {
                     id: 2,
                     title: "Клуб",
                     link: "",
+                    class: "club",
                 },
                 {
                     id: 3,
                     title: "Лучшие iAgent",
                     link: "",
+                    class: "best",
                 },
                 {
                     id: 4,
                     title: "Дизайн",
                     link: "",
+                    class: "design",
                 },
                 {
                     id: 5,
                     title: "Сделано в Испании",
                     link: "",
+                    class: "madeInSpain",
                 },
                 {
                     id: 6,
                     title: "Форум",
                     link: "",
+                    class: "forum",
                 },
                 {
                     id: 7,
                     title: "Блог",
                     link: "",
+                    class: "blog",
                 },
             ],
         },
@@ -985,14 +991,14 @@ export const allData = {
                     buttons: [
                         {
                             id: 0,
-                            name: 'Compra',
-                            text: 'Покупка'
+                            name: "Compra",
+                            text: "Покупка",
                         },
                         {
                             id: 1,
-                            name: 'Alquiler',
-                            text: 'Аренда'
-                        }
+                            name: "Alquiler",
+                            text: "Аренда",
+                        },
                     ],
                 },
                 content: {
@@ -1111,8 +1117,6 @@ export const allData = {
                 },
             },
         },
-        newsPageData: {
-
-        }
+        newsPageData: {},
     },
 };

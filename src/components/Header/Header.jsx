@@ -17,8 +17,9 @@ export const Header = ({
     const styles = allStyles.headerStyles;
     const buttonsLang = dataText.headerData;
 
-    const togglePage = (event) => {
-        setCurrentPage(event.target.name);
+    const togglePage = (name) => {
+        setCurrentPage(name);
+        console.log(name);
     };
 
     const toggleChangeSelector = () => {
@@ -31,9 +32,13 @@ export const Header = ({
     return (
         <div className={styles.headerComp}>
             <div className={styles.insideHeader}>
-                <a href="index.html" className={styles.logoHeader}>
+                <button
+                    className={styles.logoHeader}
+                    name="Homepage"
+                    onClick={() => togglePage("Homepage")}
+                >
                     <img src={logoHeader1} alt="" />
-                </a>
+                </button>
                 <nav className={styles.navigationHeader}>
                     {buttonsLang.navigationTop.map((item) => (
                         <button
@@ -108,7 +113,7 @@ export const Header = ({
                         key={item.id}
                         className={styles.buttonBottomHeader}
                         name={item.class}
-                        onClick={(event) => togglePage(event)}
+                        onClick={(event) => togglePage(event.target.name)}
                     >
                         {item.title}
                     </button>

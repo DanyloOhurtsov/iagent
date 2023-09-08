@@ -9,6 +9,12 @@
         justify-content: space-between;
         align-items: center;
         gap: 32px;
+        .logoHeader{
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
         .navigationHeader {
             width: 486px;
             display: flex;
