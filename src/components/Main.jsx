@@ -8,6 +8,7 @@ import { AllPages } from "./AllPages/AllPages";
 export const Main = () => {
   const styles = allStyles.mainPage;
   const { Eng, Spa, Rus } = allData;
+  
 
   const [currentPage, setCurrentPage] = useState("Homepage");
   const [language, setLanguage] = useState("English");
