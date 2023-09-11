@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const SearchNews = ({
-    value: { searchQuery, handleSearchInputChange, styles, dataNews },
+    value: {
+        searchQuery,
+        handleSearchInputChange,
+        styles,
+        dataNews,
+        activeFilter,
+        setActiveFilter,
+    },
 }) => {
     const searchData = dataNews.text.search;
-    const [activeFilter, setActiveFilter] = useState("");
 
     const toggleFilter = (event) => {
-        setActiveFilter(event.target.name);
+        const filterText = event.target.name;
+        setActiveFilter(filterText);
     };
 
     return (

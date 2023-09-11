@@ -4,14 +4,18 @@ import { PaginationNews } from "./PaginationNews";
 import { Card } from "../../Reuseable/Card";
 import { SearchNews } from "./SearchNews";
 
-export const NewsComp = ({ value: { images, dataText } }) => {
+export const NewsComp = ({ value: { dataText } }) => {
     const styles = allStyles.allPagesStyles.newsPageStyles.newsCompStyles;
     const dataNews = dataText.dataText.newsPageData.newsData;
+
+    // SORTING
+    const [activeFilter, setActiveFilter] = useState("hot");
 
     // SEARCH
     const [searchQuery, setSearchQuery] = useState("");
 
     const handleSearchInputChange = (searchValue) => {
+        console.log(dataNews.content);
         setSearchQuery(searchValue);
         setCurrentPage(1);
     };
@@ -52,7 +56,18 @@ export const NewsComp = ({ value: { images, dataText } }) => {
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const paginatedContent = filteredContent.slice(startIndex, endIndex);
+
+    // SORTING
+    let sortedContent = [...filteredContent];
+    if (activeFilter === "hot") {
+        sortedContent.sort((a, b) => b.viewed - a.viewed);
+    } else if (activeFilter === "new") {
+        sortedContent.sort((a, b) => b.dateForSort - a.dateForSort);
+    } else if (activeFilter === "most comment") {
+        sortedContent.sort((a, b) => b.comments - a.comments);
+    }
+
+    const paginatedContent = sortedContent.slice(startIndex, endIndex);
 
     const onPageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -65,7 +80,14 @@ export const NewsComp = ({ value: { images, dataText } }) => {
             </div>
             <div className={styles.contentNews}>
                 <SearchNews
-                    value={{ searchQuery, handleSearchInputChange, styles, dataNews }}
+                    value={{
+                        searchQuery,
+                        handleSearchInputChange,
+                        styles,
+                        dataNews,
+                        activeFilter,
+                        setActiveFilter,
+                    }}
                 />
                 <div className={styles.articlesContentNews}>
                     <div className={styles.firstRowArticles}>
@@ -90,7 +112,9 @@ export const NewsComp = ({ value: { images, dataText } }) => {
                             <div className={styles.inputSectionNews}>
                                 <p
                                     className={`${styles.labelInputNews} ${
-                                        !isEmailValid ? styles.wrongEmailLabel : ""
+                                        !isEmailValid
+                                            ? styles.wrongEmailLabel
+                                            : ""
                                     }`}
                                 >
                                     Email

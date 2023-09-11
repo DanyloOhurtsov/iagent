@@ -2,8 +2,9 @@ import React from "react";
 import { allStyles } from "../../../styles/allStyles";
 import { Card } from "../../Reuseable/Card";
 
-export const BestHome = ({ value: {dataText} }) => {
+export const BestHome = ({ value: { dataText } }) => {
     const bestData = dataText.homePageData.bestData;
+
     const styles = allStyles.allPagesStyles.homePageStyles.bestHome;
 
     return (
@@ -13,8 +14,8 @@ export const BestHome = ({ value: {dataText} }) => {
             </div>
             <h3 className={styles.subtitleBest}>{bestData.text.text}</h3>
             <div className={styles.contentBestHome}>
-                {bestData.content.map((item)=>(
-                    <Card key={item.id} value={{item}}/>
+                {bestData.content.slice(0, 5).map((item) => (
+                    <Card key={item.id} value={{ item }} />
                 ))}
             </div>
         </div>

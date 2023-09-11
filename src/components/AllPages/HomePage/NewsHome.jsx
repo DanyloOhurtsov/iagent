@@ -36,7 +36,7 @@ export const NewsHome = ({ value: { dataText } }) => {
             </div>
             <div className={styles.insideNews}>
                 <div className={styles.cardNewsHome}>
-                    {news.map((item) => (
+                    {news.slice(0, 6).map((item) => (
                         <Card value={{ item }} key={item.id} />
                     ))}
                 </div>
@@ -44,7 +44,7 @@ export const NewsHome = ({ value: { dataText } }) => {
                     <div className={styles.blogAsideNewsHome}>
                         <h3 className={styles.blogTitleAside}>{blog.title}</h3>
                         <div className={styles.blogContentAside}>
-                            {blog.content.map((item) => (
+                            {blog.content.slice(0, 6).map((item) => (
                                 <div className={styles.blogItem} key={item.id}>
                                     <div className={styles.textContentBlogItem}>
                                         <p className={styles.titleBlogItem}>

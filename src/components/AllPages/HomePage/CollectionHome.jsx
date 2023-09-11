@@ -1,29 +1,22 @@
 import React, { useState } from "react";
 import { allStyles } from "../../../styles/allStyles";
+import { Card } from "../../Reuseable/Card";
 
 export const CollectionHome = ({ value: { dataText } }) => {
-    // DATA
+    const maxItemsToShow = 12;
+    const visibleItems = 3;
     const collectionData = dataText.homePageData.collectionData;
+    const collectionContent = collectionData.content;
+    let dataForCollectionSlider = [];
+
     const [activeButton, setActiveButton] = useState("Compra");
-    let dataForCollectionSlider;
-    if (activeButton === "Compra") {
-        dataForCollectionSlider = collectionData.content.Compra;
-    }
-    if (activeButton === "Alquiler") {
-        dataForCollectionSlider = collectionData.content.Alquiler;
-    }
-
-    // STYLES
-    const styles = allStyles.allPagesStyles.homePageStyles.collectionHome;
-
-    // SLIDER
-    const visibleItems = 3
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const nextSlide = () => {
-        if (currentIndex < dataForCollectionSlider.length - visibleItems) {
-            setCurrentIndex(currentIndex + 1);
-        }
+    const styles = allStyles.allPagesStyles.homePageStyles.collectionHome;
+
+    const updateActiveButton = (buttonName) => {
+        setActiveButton(buttonName);
+        setCurrentIndex(0);
     };
 
     const prevSlide = () => {
@@ -32,8 +25,27 @@ export const CollectionHome = ({ value: { dataText } }) => {
         }
     };
 
+    const nextSlide = () => {
+        if (currentIndex < dataForCollectionSlider.length - visibleItems) {
+            setCurrentIndex(currentIndex + 1);
+        }
+    };
+
     const isPreviousDisabled = currentIndex === 0;
-    const isNextDisabled = currentIndex === dataForCollectionSlider.length - 3;
+    const isNextDisabled =
+        currentIndex === dataForCollectionSlider.length - visibleItems;
+
+    if (activeButton === "Compra") {
+        dataForCollectionSlider = collectionContent.Compra.slice(
+            0,
+            maxItemsToShow
+        );
+    } else if (activeButton === "Alquiler") {
+        dataForCollectionSlider = collectionContent.Alquiler.slice(
+            0,
+            maxItemsToShow
+        );
+    }
 
     return (
         <div className={styles.collectionCompHome}>
@@ -44,11 +56,11 @@ export const CollectionHome = ({ value: { dataText } }) => {
                 <div className={styles.buttonsControlCollectionHome}>
                     {collectionData.text.buttons.map((item) => (
                         <button
+                            key={item.id}
                             className={`${styles.buttonToggleNews} ${
                                 activeButton === item.name ? styles.active : ""
                             }`}
-                            onClick={() => setActiveButton(item.name)}
-                            key={item.id}
+                            onClick={() => updateActiveButton(item.name)}
                         >
                             {item.text}
                         </button>
@@ -75,38 +87,8 @@ export const CollectionHome = ({ value: { dataText } }) => {
                 <div className={styles.sliderWrapper}>
                     {dataForCollectionSlider
                         .slice(currentIndex, currentIndex + visibleItems)
-                        .map((item, index) => (
-                            <div
-                                key={item.id}
-                                className={styles.slideCollectionHome}
-                            >
-                                <div className={styles.imageCard}>
-                                    <img src={item.image} alt={item.name} />
-                                </div>
-                                <div className={styles.textCard}>
-                                    <div className={styles.dateInfo}>
-                                        <p>{item.dateNumber}</p>
-                                        <p>
-                                            <i className="fa-regular fa-eye"></i>
-                                            <span>{item.viewed}</span>
-                                        </p>
-                                    </div>
-                                    <p className={styles.titleCard}>
-                                        {item.title}
-                                    </p>
-                                    <p className={styles.descriptionCard}>
-                                        {item.desc}
-                                    </p>
-                                    <div className={styles.linksCard}>
-                                        <button>
-                                            <i className="fa-solid fa-message"></i>
-                                        </button>
-                                        <button>
-                                            <i className="fa-solid fa-share"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        .map((item) => (
+                            <Card value={{ item }} key={item.id} />
                         ))}
                 </div>
             </div>

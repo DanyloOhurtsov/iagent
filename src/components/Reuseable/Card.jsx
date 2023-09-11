@@ -23,7 +23,7 @@ export const Card = ({ value }) => {
                         <span>{data.viewed}</span>
                     </p>
                 </div>
-                <p className={styles.titleCard}>{data.id}{data.title}</p>
+                <p className={styles.titleCard}>{data.title}</p>
                 <p className={styles.descriptionCard}>{data.desc}</p>
                 <div className={styles.linksCard}>
                     <button>
