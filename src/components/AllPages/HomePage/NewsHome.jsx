@@ -5,9 +5,9 @@ import { Card } from "../../Reuseable/Card";
 export const NewsHome = ({ value: { dataText } }) => {
     // STYLES
     const styles = allStyles.allPagesStyles.homePageStyles.newsHome;
+    const optionsForCard = true;
 
     // LANG DATA
-    // const dataText = value;
     const { news, blog, text } = dataText.homePageData.newsData;
 
     // EMAIL
@@ -37,7 +37,7 @@ export const NewsHome = ({ value: { dataText } }) => {
             <div className={styles.insideNews}>
                 <div className={styles.cardNewsHome}>
                     {news.slice(0, 6).map((item) => (
-                        <Card value={{ item }} key={item.id} />
+                        <Card value={{ item, optionsForCard }} key={item.id} />
                     ))}
                 </div>
                 <div className={styles.asideNewsHome}>
@@ -51,7 +51,7 @@ export const NewsHome = ({ value: { dataText } }) => {
                                             {item.title}
                                         </p>
                                         <p className={styles.descBlogItem}>
-                                            {item.text} <br /> {item.date}
+                                            {item.text} <br /> {item.dateNumber}
                                         </p>
                                     </div>
                                     <div

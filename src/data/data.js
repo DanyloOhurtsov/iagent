@@ -1,5 +1,27 @@
 import { allImages } from "../images/allImages";
 
+const peopleList = [
+    "John Smith",
+    "Jane Johnson",
+    "Michael Brown",
+    "Emily Williams",
+    "William Jones",
+    "Olivia Miller",
+    "James Davis",
+    "Sophia García",
+    "Benjamin Rodriguez",
+    "Ava Martínez",
+    "Alexander Hernández",
+    "Isabella López",
+    "Henry González",
+    "Mia Perez",
+    "Daniel Wilson",
+    "Charlotte Anderson",
+    "Joseph Taylor",
+    "Amelia Moore",
+    "David Jackson",
+    "Ella White",
+];
 const numberOfArticles = 101;
 
 function getOrder(i) {
@@ -11,7 +33,7 @@ function getRandomInt(min, max) {
 
 function generateRandomDate() {
     const startDate = new Date(2022, 0, 1).getTime();
-    const endDate = new Date(2023, 11, 31).getTime();
+    const endDate = new Date().getTime();
     const randomTimestamp = getRandomInt(startDate, endDate);
     return new Date(randomTimestamp).toLocaleDateString("ru-RU");
 }
@@ -26,12 +48,32 @@ function convertToJavaScriptDate(dateString) {
     return jsDate;
 }
 
+function generateRandomComent(id) {
+    const randomPersonIndex = Math.floor(Math.random() * peopleList.length);
+    const randomPerson = peopleList[randomPersonIndex];
+
+    const comment = {
+        id,
+        personPhoto: "https://xsgames.co/randomusers/avatar.php?g=female",
+        personName: randomPerson,
+        date: generateRandomDate(),
+        likes: getRandomInt(0, 100),
+        comments: getRandomInt(0, 100),
+        text: "With nature-inspired architecture, amenities uniquely focused on well-being, and refined interiors influenced by Vastu Shastra,rchitecture, amenities uniquely focused on well-being, and refined interiors influenced by Vastu Shastra",
+    };
+    return comment;
+}
+
 function generateRandomArticle(id) {
-    const viewed = getRandomInt(0, 1000);
-    const comments = getRandomInt(0, 1000);
+    const viewed = getRandomInt(0, 100);
+    const comments = getRandomInt(0, 100);
 
     const dateNumber = generateRandomDate();
     const dateForSort = convertToJavaScriptDate(dateNumber);
+
+    const dataComments = Array.from({ length: comments }, (_, id) =>
+        generateRandomComent(id, peopleList)
+    );
 
     const article = {
         id,
@@ -40,8 +82,9 @@ function generateRandomArticle(id) {
         dateNumber,
         desc: "With nature-inspired architecture, amenities uniquely focused on well-being, and refined interiors influenced by Vastu Shastra, this complex is set to",
         viewed,
+        text: 'propestar marketing',
         link: "",
-        comments,
+        dataComments,
         dateForSort,
     };
 

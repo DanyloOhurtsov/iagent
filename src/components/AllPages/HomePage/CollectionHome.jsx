@@ -7,6 +7,7 @@ export const CollectionHome = ({ value: { dataText } }) => {
     const visibleItems = 3;
     const collectionData = dataText.homePageData.collectionData;
     const collectionContent = collectionData.content;
+    const optionsForCard = true;
     let dataForCollectionSlider = [];
 
     const [activeButton, setActiveButton] = useState("Compra");
@@ -88,7 +89,7 @@ export const CollectionHome = ({ value: { dataText } }) => {
                     {dataForCollectionSlider
                         .slice(currentIndex, currentIndex + visibleItems)
                         .map((item) => (
-                            <Card value={{ item }} key={item.id} />
+                            <Card value={{ item, optionsForCard }} key={item.id} />
                         ))}
                 </div>
             </div>

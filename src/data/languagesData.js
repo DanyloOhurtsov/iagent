@@ -299,6 +299,12 @@ export const allData = {
                 },
                 content: dataArticles,
             },
+            commentsData: {
+                text: {
+                    title: "Comments",
+                },
+                content: dataArticles,
+            },
         },
     },
     Spa: {},

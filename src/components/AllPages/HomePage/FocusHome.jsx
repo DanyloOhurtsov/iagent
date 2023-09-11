@@ -6,6 +6,7 @@ import { allImages } from "../../../images/allImages";
 export const FocusHome = ({ value: {dataText} }) => {
     // STYLES
     const styles = allStyles.allPagesStyles.homePageStyles.focusHome;
+    const optionsForCard = true;
     // IMAGES
     const image = allImages.articleImages.focusImg;
     // FOCUS DATA
@@ -31,7 +32,7 @@ export const FocusHome = ({ value: {dataText} }) => {
                 </div>
                 <div className={styles.cardsFocusHome}>
                     {top5FocusData.map((item) => (
-                        <Card value={{ item }} key={item.id} />
+                        <Card value={{ item, optionsForCard }} key={item.id} />
                     ))}
                 </div>
             </div>

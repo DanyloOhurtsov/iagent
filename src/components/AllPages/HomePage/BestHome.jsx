@@ -4,6 +4,7 @@ import { Card } from "../../Reuseable/Card";
 
 export const BestHome = ({ value: { dataText } }) => {
     const bestData = dataText.homePageData.bestData;
+    const optionsForCard = true;
 
     const styles = allStyles.allPagesStyles.homePageStyles.bestHome;
 
@@ -15,7 +16,7 @@ export const BestHome = ({ value: { dataText } }) => {
             <h3 className={styles.subtitleBest}>{bestData.text.text}</h3>
             <div className={styles.contentBestHome}>
                 {bestData.content.slice(0, 5).map((item) => (
-                    <Card key={item.id} value={{ item }} />
+                    <Card key={item.id} value={{ item, optionsForCard }} />
                 ))}
             </div>
         </div>

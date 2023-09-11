@@ -1,11 +1,8 @@
 import React from "react";
+import { allStyles } from "../../styles/allStyles";
 
-export const PaginationNews = ({
-    currentPage,
-    totalPages,
-    onPageChange,
-    styles,
-}) => {
+export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+    const styles = allStyles.reuseableStyles.paginationStyles;
     const handlePrevClick = () => {
         if (currentPage > 1) {
             onPageChange(currentPage - 1);

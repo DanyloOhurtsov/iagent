@@ -1,38 +1,39 @@
 import React from "react";
 import { allStyles } from "../../styles/allStyles";
 
-export const Card = ({ value }) => {
+export const Card = ({ value: { item, optionsForCard } }) => {
     const styles = allStyles.reuseableStyles.cardStyles;
-    const data = value.item;
 
     return (
         <div className={styles.cardComp}>
             <div className={styles.imageCard}>
-                <img src={data.image} alt={data.name} />
-                {data.rateNumber && (
+                <img src={item.image} alt={item.name} />
+                {item.rateNumber && (
                     <div className={styles.numberRate}>
-                        <p>{data.rateNumber}</p>
+                        <p>{item.rateNumber}</p>
                     </div>
                 )}
             </div>
             <div className={styles.textCard}>
                 <div className={styles.dateInfo}>
-                    <p>{data.dateNumber}</p>
+                    <p>{item.dateNumber}</p>
                     <p>
                         <i className="fa-regular fa-eye"></i>
-                        <span>{data.viewed}</span>
+                        <span>{item.viewed}</span>
                     </p>
                 </div>
-                <p className={styles.titleCard}>{data.title}</p>
-                <p className={styles.descriptionCard}>{data.desc}</p>
-                <div className={styles.linksCard}>
-                    <button>
-                        <i className="fa-solid fa-message"></i>
-                    </button>
-                    <button>
-                        <i className="fa-solid fa-share"></i>
-                    </button>
-                </div>
+                <p className={styles.titleCard}>{item.title}</p>
+                <p className={styles.descriptionCard}>{item.desc}</p>
+                {optionsForCard && (
+                    <div className={styles.linksCard}>
+                        <button>
+                            <i className="fa-solid fa-message"></i>
+                        </button>
+                        <button>
+                            <i className="fa-solid fa-share"></i>
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

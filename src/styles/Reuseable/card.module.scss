@@ -2,6 +2,7 @@
 
 .cardComp {
     width: calc(50% - 12px);
+    flex-shrink: 0;
     max-width: 388px;
     display: flex;
     flex-direction: column;
