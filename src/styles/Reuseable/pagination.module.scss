@@ -1,9 +1,15 @@
-@import '../variables.module.scss';
+@import "../variables.module.scss";
 
 .paginationComp {
     display: flex;
     justify-content: center;
     gap: 16px;
+    p {
+        color: $color_Black_232;
+        font-family: $fontFamily;
+        font-size: $size16;
+        font-weight: $weight400;
+    }
     button {
         border: none;
         background: none;

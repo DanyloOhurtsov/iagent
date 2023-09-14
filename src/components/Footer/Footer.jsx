@@ -3,14 +3,14 @@ import { allStyles } from "../../styles/allStyles";
 
 export const Footer = ({ value }) => {
     const {
+        dataNew,
         language,
         setLanguage,
         isOpenChangeLangFooter,
         setIsOpenChangeLangFooter,
-        dataText,
     } = value;
+    const { buttons, contact } = dataNew.components.footerCompData.content;
     const styles = allStyles.footerStyles;
-    const { links, contacts } = dataText.footerData;
 
     const toggleChangeSelector = () => {
         setIsOpenChangeLangFooter(!isOpenChangeLangFooter);
@@ -24,7 +24,7 @@ export const Footer = ({ value }) => {
         <div className={styles.footerComp}>
             <div className={styles.insideFooter}>
                 <div className={styles.leftContentFooter}>
-                    {links.map((item) => (
+                    {buttons.map((item) => (
                         <div className={styles.itemFooter} key={item.id}>
                             <h4 className={styles.tiltleItemFooter}>
                                 {item.title}
@@ -43,11 +43,13 @@ export const Footer = ({ value }) => {
                     ))}
                     <div className={styles.itemFooter}>
                         <h4 className={styles.tiltleItemFooter}>
-                            {contacts.title}
+                            {contact.title}
                         </h4>
                         <div className={styles.buttonsItem}>
-                            {contacts.content.map((item) => (
-                                <a href={item.link} key={item.id}>{item.title}</a>
+                            {contact.content.map((item) => (
+                                <a href={item.link} key={item.id}>
+                                    {item.title}
+                                </a>
                             ))}
                         </div>
                     </div>

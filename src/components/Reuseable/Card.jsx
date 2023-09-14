@@ -1,14 +1,24 @@
 import React from "react";
 import { allStyles } from "../../styles/allStyles";
 
-export const Card = ({ value: { item, optionsForCard } }) => {
+export const Card = ({
+    value: { item, options, setCurrentItem, setCurrentPage },
+}) => {
     const styles = allStyles.reuseableStyles.cardStyles;
+    const numbers = options.numbers;
+    const bottomButtons = options.bottomButtons;
+
+
+    function togglePage () {
+        setCurrentItem(item)
+    }
+    // console.log(setCurrentItem, setCurrentPage);
 
     return (
-        <div className={styles.cardComp}>
+        <div className={styles.cardComp} onClick={()=>togglePage()}>
             <div className={styles.imageCard}>
                 <img src={item.image} alt={item.name} />
-                {item.rateNumber && (
+                {numbers && (
                     <div className={styles.numberRate}>
                         <p>{item.rateNumber}</p>
                     </div>
@@ -24,7 +34,7 @@ export const Card = ({ value: { item, optionsForCard } }) => {
                 </div>
                 <p className={styles.titleCard}>{item.title}</p>
                 <p className={styles.descriptionCard}>{item.desc}</p>
-                {optionsForCard && (
+                {bottomButtons && (
                     <div className={styles.linksCard}>
                         <button>
                             <i className="fa-solid fa-message"></i>

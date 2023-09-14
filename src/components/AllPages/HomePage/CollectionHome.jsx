@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { allStyles } from "../../../styles/allStyles";
 import { Card } from "../../Reuseable/Card";
+import { Title2Comp } from "../../Reuseable/Title2Comp";
 
-export const CollectionHome = ({ value: { dataText } }) => {
+export const CollectionHome = ({
+    value: { dataNew, setCurrentItem, setCurrentPage },
+}) => {
+    // DATA and STYLES
+    const data = dataNew.pages.homePageData.content.collection;
+    const options = data.options;
+    const styles = allStyles.allPagesStyles.homePageStyles.collectionHome;
+
+    // SLIDER options
+    let dataForCollectionSlider = [];
     const maxItemsToShow = 12;
     const visibleItems = 3;
-    const collectionData = dataText.homePageData.collectionData;
-    const collectionContent = collectionData.content;
-    const optionsForCard = true;
-    let dataForCollectionSlider = [];
 
     const [activeButton, setActiveButton] = useState("Compra");
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    const styles = allStyles.allPagesStyles.homePageStyles.collectionHome;
 
     const updateActiveButton = (buttonName) => {
         setActiveButton(buttonName);
@@ -37,12 +41,12 @@ export const CollectionHome = ({ value: { dataText } }) => {
         currentIndex === dataForCollectionSlider.length - visibleItems;
 
     if (activeButton === "Compra") {
-        dataForCollectionSlider = collectionContent.Compra.slice(
+        dataForCollectionSlider = data.content.buy.content.slice(
             0,
             maxItemsToShow
         );
     } else if (activeButton === "Alquiler") {
-        dataForCollectionSlider = collectionContent.Alquiler.slice(
+        dataForCollectionSlider = data.content.rent.content.slice(
             0,
             maxItemsToShow
         );
@@ -50,12 +54,15 @@ export const CollectionHome = ({ value: { dataText } }) => {
 
     return (
         <div className={styles.collectionCompHome}>
-            <div className={styles.titleCollectionHome}>
-                <h2>{collectionData.text.title}</h2>
-            </div>
+            <Title2Comp
+                value={{
+                    title: data.text.title,
+                    color: options.styles.background,
+                }}
+            />
             <div className={styles.controlCollectionHome}>
                 <div className={styles.buttonsControlCollectionHome}>
-                    {collectionData.text.buttons.map((item) => (
+                    {data.text.carousel.button.map((item) => (
                         <button
                             key={item.id}
                             className={`${styles.buttonToggleNews} ${
@@ -89,7 +96,15 @@ export const CollectionHome = ({ value: { dataText } }) => {
                     {dataForCollectionSlider
                         .slice(currentIndex, currentIndex + visibleItems)
                         .map((item) => (
-                            <Card value={{ item, optionsForCard }} key={item.id} />
+                            <Card
+                                value={{
+                                    item,
+                                    options: options.forCard,
+                                    setCurrentItem,
+                                    setCurrentPage,
+                                }}
+                                key={item.id}
+                            />
                         ))}
                 </div>
             </div>

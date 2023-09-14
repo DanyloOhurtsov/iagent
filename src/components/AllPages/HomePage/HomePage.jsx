@@ -6,16 +6,20 @@ import { NewsHome } from "./NewsHome";
 import { BestHome } from "./BestHome";
 import { CollectionHome } from "./CollectionHome";
 
-export const HomePage = ({ value: {dataText} }) => {
+export const HomePage = ({
+    value: { dataNew, setCurrentItem, setCurrentPage },
+}) => {
     const styles = allStyles.allPagesStyles.homePageStyles.homePage;
 
     return (
         <div className={styles.homeComp}>
-            <FocusHome value={{ dataText }} />
-            <NewsHome value={{ dataText }} />
-            <SliderHome value={{ dataText }} />
-            <CollectionHome value={{ dataText }} />
-            <BestHome value={{ dataText }} />
+            <FocusHome value={{ dataNew, setCurrentItem, setCurrentPage }} />
+            <NewsHome value={{ dataNew, setCurrentItem, setCurrentPage }} />
+            <SliderHome value={{ dataNew }} />
+            <CollectionHome
+                value={{ dataNew, setCurrentItem, setCurrentPage }}
+            />
+            <BestHome value={{ dataNew, setCurrentItem, setCurrentPage }} />
         </div>
     );
 };

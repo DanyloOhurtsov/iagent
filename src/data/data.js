@@ -22,7 +22,7 @@ const peopleList = [
     "David Jackson",
     "Ella White",
 ];
-const numberOfArticles = 101;
+const numberOfArticles = 1000;
 
 function getOrder(i) {
     return i + 1;
@@ -74,6 +74,7 @@ function generateRandomArticle(id) {
     const dataComments = Array.from({ length: comments }, (_, id) =>
         generateRandomComent(id, peopleList)
     );
+    const rateNumber = getOrder(id);
 
     const article = {
         id,
@@ -82,10 +83,11 @@ function generateRandomArticle(id) {
         dateNumber,
         desc: "With nature-inspired architecture, amenities uniquely focused on well-being, and refined interiors influenced by Vastu Shastra, this complex is set to",
         viewed,
-        text: 'propestar marketing',
+        text: "propestar marketing",
         link: "",
         dataComments,
         dateForSort,
+        rateNumber,
     };
 
     return article;
@@ -95,13 +97,30 @@ export const dataArticles = Array.from({ length: numberOfArticles }, (_, id) =>
     generateRandomArticle(id)
 );
 
-export const dataArticlesNumbered = dataArticles.map((article) => ({
-    ...article,
-    image: allImages.articleImages.img1Article,
-    rateNumber: getOrder(article.id),
-}));
-
 export const dataArticlesRent = dataArticles.map((article) => ({
     ...article,
     image: allImages.articleImages.img2Article,
 }));
+
+// VIDEO
+function generateRandomVideo(id) {
+    const viewed = getRandomInt(0, 100);
+
+    const dateNumber = generateRandomDate();
+
+    const video = {
+        id,
+        video: allImages.videoTest,
+        title: `${id + 1} Eywa: New Take on Dubai’s Luxury Real Estate`,
+        dateNumber,
+        thumbnail: allImages.previewVideo,
+        desc: "With nature-inspired architecture, amenities uniquely focused on well-being, and refined interiors influenced by Vastu Shastra,With nature-inspired architecture, amenities uniquely focused on well-being, and refined interiors influenced by Vastu Shastra,",
+        viewed,
+        active: false,
+    };
+
+    return video;
+}
+export const dataVideo = Array.from({ length: numberOfArticles }, (_, id) =>
+    generateRandomVideo(id)
+);

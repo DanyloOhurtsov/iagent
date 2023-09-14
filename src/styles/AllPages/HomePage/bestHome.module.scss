@@ -4,17 +4,6 @@
     max-width: 1212px;
     margin: 0 auto;
     margin-top: 80px;
-    .titleBestHome {
-        width: 100%;
-        background-color: $color_Blue_E5E;
-        padding: 16px 24px;
-        h2 {
-            color: $color_Black_232;
-            font-family: $fontFamily;
-            font-size: $size38;
-            font-weight: $weight700;
-        }
-    }
     .subtitleBest {
         color: $color_Black_232;
         font-family: $fontFamily;
@@ -22,7 +11,7 @@
         font-weight: $weight700;
         padding: 24px 0;
     }
-    .contentBestHome{
+    .contentBestHome {
         display: flex;
         flex-wrap: wrap;
         gap: 24px;

@@ -1,38 +1,45 @@
 import React from "react";
 import { allStyles } from "../../../styles/allStyles";
 import { Card } from "../../Reuseable/Card";
-import { allImages } from "../../../images/allImages";
+import { Title2Comp } from "../../Reuseable/Title2Comp";
+import { Shareit } from "../../Reuseable/Shareit";
 
-export const FocusHome = ({ value: {dataText} }) => {
+export const FocusHome = ({
+    value: { dataNew, setCurrentItem, setCurrentPage },
+}) => {
+    // FOCUS DATA
+    const data = dataNew.pages.homePageData.content.focus;
+    const articles = data.content.articles.slice(0, 3);
     // STYLES
     const styles = allStyles.allPagesStyles.homePageStyles.focusHome;
-    const optionsForCard = true;
-    // IMAGES
-    const image = allImages.articleImages.focusImg;
-    // FOCUS DATA
-    const focusData = dataText.homePageData.focusData;
-    const top5FocusData = focusData.content.slice(0, 3);
+    const options = data.options;
 
     return (
         <div className={styles.focusHomeComp}>
-            <div className={styles.titleFocusHome}>
-                <h2>{focusData.text.title}</h2>
-            </div>
+            <Title2Comp
+                value={{
+                    title: data.text.title,
+                    color: options.styles.background,
+                }}
+            />
             <div className={styles.contentFocusHome}>
-                <div className={styles.topRowFocusHome}>
-                    <div className="imageTopRowFocusHome">
-                        <img src={image} alt="" />
-                    </div>
-                    <div className={styles.shareCardFocus}>
-                        <p className={styles.titleInputsCard}>
-                            {focusData.text.asideInfo.title}
-                        </p>
-                        <button>{focusData.text.asideInfo.buttonText}</button>
-                    </div>
-                </div>
+                <Shareit
+                    value={{
+                        dataNew,
+                        color: data.options.forShareIt.background,
+                    }}
+                />
                 <div className={styles.cardsFocusHome}>
-                    {top5FocusData.map((item) => (
-                        <Card value={{ item, optionsForCard }} key={item.id} />
+                    {articles.map((item) => (
+                        <Card
+                            value={{
+                                item,
+                                options: options.forCard,
+                                setCurrentItem,
+                                setCurrentPage,
+                            }}
+                            key={item.id}
+                        />
                     ))}
                 </div>
             </div>

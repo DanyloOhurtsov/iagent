@@ -4,18 +4,18 @@ import { allImages } from "../../images/allImages";
 
 export const Header = ({
     value: {
-        dataText,
         language,
         setLanguage,
         isOpenChangeLangHeader,
         setIsOpenChangeLangHeader,
         currentPage,
         setCurrentPage,
+        dataNew,
     },
 }) => {
+    const data = dataNew.components.headerCompData.content;
     const logoHeader1 = allImages.logoHeader1;
     const styles = allStyles.headerStyles;
-    const buttonsLang = dataText.headerData;
 
     const togglePage = (name) => {
         setCurrentPage(name);
@@ -33,13 +33,13 @@ export const Header = ({
             <div className={styles.insideHeader}>
                 <button
                     className={styles.logoHeader}
-                    name="Homepage"
-                    onClick={() => togglePage("Homepage")}
+                    name="home"
+                    onClick={() => togglePage("home")}
                 >
                     <img src={logoHeader1} alt="" />
                 </button>
                 <nav className={styles.navigationHeader}>
-                    {buttonsLang.navigationTop.map((item) => (
+                    {data.navigationTop.map((item) => (
                         <button
                             className={`${styles.buttonHeader}`}
                             key={item.id}
@@ -107,7 +107,7 @@ export const Header = ({
             </div>
             <hr />
             <div className={styles.bottomHeader}>
-                {buttonsLang.navigationBottom.map((item) => (
+                {data.navigationBottom.map((item) => (
                     <button
                         key={item.id}
                         className={`${styles.buttonBottomHeader} ${
